@@ -37,6 +37,7 @@ stratification of IPF patients.
 # representation learning
 For representation learning, the data is organized in webdataset format, which make it easier to write I/O pipelines for large datasets. Within the .tar file, a series of training samples are stored as .npy files. The sample follows the format
 
+```
 samples.tar
 |
 ├── 0.npy                  # Random location (x1,y1,z) within slides
@@ -71,6 +72,7 @@ Then using SphericalKMeans in spherecluster package to cluster all the patch emb
 # Mortality prediction bia clustering ViT
 Finally, the patch embeddings and their cluster assignments are fed into the clustering ViT to predict mortality risk. For clustering ViT, the data follows the format
 
+```
 CTscans.npy
 |
 ├── patientEmbedding   # (n x d) Embeddings for all patches within the CT scans generated from DnR, n is the number of patches, and d is dimention of embedding.
@@ -78,6 +80,7 @@ CTscans.npy
 ├── cluster # (n x 1) Cluster assignments for all patches generated from KMeans
 ├── Dead # 1 means the event is observed, 0 means censored
 ├── FollowUpTime # The time between CT scans date and the date of event or date of censored.
+```
 
 You can go into the folder install the library by running the command.
 
